@@ -42,7 +42,9 @@ class MovieList extends Component {
             <MovieCard key={ movie.title } movie={ movie } />
           ))}
         </div>
-        <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        <section className="links">
+          <Link to="/movies/new">ADICIONAR CARTÃO</Link>
+        </section>
       </div>
     );
   }

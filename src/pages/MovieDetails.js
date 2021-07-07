@@ -39,15 +39,17 @@ class MovieDetails extends Component {
 
     return (
       <div data-testid="movie-details" className="movie-details-container">
-        <h1>{title}</h1>
+        <h1 className="movie-title">{title}</h1>
         <img className="movie-cover" alt="Movie Cover" src={ `../${imagePath}` } />
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
-        <Link to="/">VOLTAR</Link>
-        <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link onClick={ () => movieAPI.deleteMovie(id) } to="/">DELETAR</Link>
+        <section className="links">
+          <Link to="/">VOLTAR</Link>
+          <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
+          <Link onClick={ () => movieAPI.deleteMovie(id) } to="/">DELETAR</Link>
+        </section>
       </div>
     );
   }

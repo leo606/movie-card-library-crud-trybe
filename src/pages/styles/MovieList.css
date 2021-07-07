@@ -4,4 +4,16 @@
 
 .movie-list {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.links {
+  margin: 9px;
+  display: flex;
+  justify-content: center;
+}
+
+.links a {
+  margin-right: 6px;
 }
