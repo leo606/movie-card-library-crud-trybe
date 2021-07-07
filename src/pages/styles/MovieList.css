@@ -1,0 +1,7 @@
+.movie-list-container {
+  padding: 9px;
+}
+
+.movie-list {
+  display: flex;
+}

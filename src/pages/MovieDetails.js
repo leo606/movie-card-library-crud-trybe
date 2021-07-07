@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as movieAPI from '../services/movieAPI';
 import { Loading } from '../components';
+import './styles/MovieDetails.css';
 
 class MovieDetails extends Component {
   constructor() {
@@ -12,7 +13,6 @@ class MovieDetails extends Component {
       movie: undefined,
     };
     this.fetchMovie = this.fetchMovie.bind(this);
-    this.deleteMovie = this.deleteMovie.bind(this);
   }
 
   componentDidMount() {
@@ -20,12 +20,6 @@ class MovieDetails extends Component {
     const { params } = match;
     const { id } = params;
     this.fetchMovie(id);
-  }
-
-  deleteMovie() {
-    const { movie } = this.state;
-    const { id } = movie;
-    movieAPI.deleteMovie(id);
   }
 
   async fetchMovie(id) {
@@ -44,16 +38,16 @@ class MovieDetails extends Component {
     const { title, storyline, imagePath, genre, rating, subtitle, id } = movie;
 
     return (
-      <div data-testid="movie-details">
+      <div data-testid="movie-details" className="movie-details-container">
         <h1>{title}</h1>
-        <img alt="Movie Cover" src={ `../${imagePath}` } />
+        <img className="movie-cover" alt="Movie Cover" src={ `../${imagePath}` } />
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
         <p>{`Genre: ${genre}`}</p>
         <p>{`Rating: ${rating}`}</p>
         <Link to="/">VOLTAR</Link>
         <Link to={ `/movies/${id}/edit` }>EDITAR</Link>
-        <Link onClick={ this.deleteMovie } to="/">DELETAR</Link>
+        <Link onClick={ () => movieAPI.deleteMovie(id) } to="/">DELETAR</Link>
       </div>
     );
   }

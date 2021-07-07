@@ -5,10 +5,13 @@ import MovieDetails from './pages/MovieDetails';
 import NewMovie from './pages/NewMovie';
 import EditMovie from './pages/EditMovie';
 import NotFound from './pages/NotFound';
+import Header from './components/Header';
+import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route path="/movies/:id/edit" component={ EditMovie } />
         <Route path="/movies/new" component={ NewMovie } />

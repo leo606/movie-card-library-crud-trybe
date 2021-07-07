@@ -1,0 +1,8 @@
+.movie-details-container{
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  margin-right: 3px;
+}
